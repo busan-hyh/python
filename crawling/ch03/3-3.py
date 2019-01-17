@@ -1,6 +1,5 @@
 #find하기
 
-import datetime
 from pymongo import MongoClient as mongo
 conn = mongo('mongodb://hyh:1234@192.168.111.101:27017')
 db = conn.get_database('test')
@@ -25,3 +24,12 @@ rs3 = member.find({'uid':'qwer', 'name':'김덕천'})
 for doc in rs3:
     print(doc['name'])
 
+# $lt 조건문
+rs4 = member.find({'age':{'$lt':40}})
+for doc in rs4:
+    print(doc['name'])
+
+# /포함문자/조건문
+rs5 = member.find({'uid':'qwer'})
+for doc in rs5:
+    print(doc['name'])
